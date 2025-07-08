@@ -1,0 +1,15 @@
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        max_val = -1
+        s_max = -1
+
+        for ch in s:
+            if ch.isdigit():
+                digit = int(ch)
+                if digit > max_val:
+                    s_max = max_val
+                    max_val = digit
+                elif digit > s_max and digit < max_val:
+                    s_max = digit
+
+        return s_max
